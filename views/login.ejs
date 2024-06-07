@@ -1,31 +1,31 @@
 <%- include('partials/_header.ejs'); %>	
 <%- include('partials/_navigation.ejs'); %>
 	
-	        <div class="container">
-            <div class="section-title text-center">
-                <h3 class="mt-5">LOGIN</h3>
-
-            <div class="row">
-                <div class="col-xl-12 col-md-12 col-sm-12">
-                    <div class="contact_form">
-                        <div id="message"></div>
-                        <form class="" name="contactform" method="post" action="users/login">
-                            <div class="row row-fluid">
-                                <div class="offset-1 col-lg-10 col-md-10 col-sm-10">
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="Email">
-                                </div>
-                                <div class="offset-1 col-lg-10 col-md-10 col-sm-10">
-                                    <input type="password" name="password" id="password" class="form-control" placeholder="Password">
-                                </div>
-
-                                <div class="offset-1 col-lg-10 col-md-10 col-sm-10">
-                                    <button type="submit" value="LOGIN" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block">LOGIN</button>
-                                </div>
-                            </div>
-                        </form>
+<div class="container contact_form">
+    <div class="section-title text-center">
+        <h3 class="mt-5">Giriş Yap</h3>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="">
+                <div id="message"></div>
+                <form name="contactform" method="post" action="users/login">
+                    <div class="form-group">
+                        <label for="email">Kullanıcı Adı veya E-posta</label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Kullanıcı Adı veya E-posta">
                     </div>
-                </div><!-- end col -->
-            </div><!-- end row -->
-        </div><!-- end container -->
-	 </div><!-- end container -->
-     <%- include('partials/_footer.ejs'); %>
+                    <div class="form-group">
+                        <label for="password">Şifre</label>
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Şifre">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">GİRİŞ YAP</button>
+                </form>
+                <div class="text-center mt-3">
+                    <a href="register" class="d-block">Hesabınız yok mu? Hesap Oluşturun</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/_footer.ejs'); %>

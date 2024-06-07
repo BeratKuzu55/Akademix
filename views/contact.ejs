@@ -1,60 +1,56 @@
 <%- include('partials/_header.ejs'); %>
 <%- include('partials/_navigation.ejs'); %>   
 	
-	<div class="all-title-box">
-		<div class="container text-center">
-			<h1>Contact<span class="m_1">Lorem Ipsum dolroin gravida nibh vel velit.</span></h1>
-		</div>
-	</div>
+<div class="all-title-box">
+    <div class="container text-center">
+        <h1>İletişim<span class="m_1">Sorularınız ve talepleriniz için bizimle iletişime geçin. Aşağıdaki formu doldurarak mesajınızı iletebilirsiniz.</span></h1>
+    </div>
+</div>
 	
-    <div id="contact" class="section wb">
-        <div class="container">
-            <div class="section-title text-center">
-                <h3>Need Help? Sure we are Online!</h3>
-                <p class="lead">Let us give you more details about the special offer website you want us. Please fill out the form below. <br>We have million of website owners who happy to work with us!</p>
-            </div><!-- end title -->
+<div id="contact" class="section wb">
+    <div class="container">
+        <div class="section-title text-center">
+            <h3>Yardıma mı ihtiyacınız var? Çevrimiçiyiz!</h3>
+            <p class="lead">Size özel teklif hakkında daha fazla bilgi vermemizi ister misiniz? Lütfen aşağıdaki formu doldurun. <br>Milyonlarca web sitesi sahibi bizimle çalışmaktan mutluluk duyuyor!</p>
+        </div><!-- end title -->
 
-            <% if (flashMessages) { %>
-                <% if (flashMessages.success) { %>
-                  <div class="alert alert-success">
-                <%= flashMessages.success %>
+        <% if (flashMessages) { %>
+            <% if (flashMessages.success) { %>
+                <div class="alert alert-success">
+                    <%= flashMessages.success %>
                 </div>
-              <% } else if (flashMessages.error) { %>
-               <div class="alert alert-danger">
-                <%= flashMessages.error %>
+            <% } else if (flashMessages.error) { %>
+                <div class="alert alert-danger">
+                    <%= flashMessages.error %>
                 </div>
-                <% } %>
-              <% } %>
+            <% } %>
+        <% } %>
 
-
-            <div class="row">
-                <div class="offset-1 col-xl-10 col-md-10 col-sm-10">
-                    <div class="contact_form">
-                        <div id="message"></div>
-                        <form id="contactform" class="" action="/contact" name="contactform" method="post">
-                            <div class="row row-fluid">
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <input type="text" name="name" id="first_name" class="form-control" placeholder="Your Name">
-                                </div>
-                                
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="Your Email">
-                                </div>
-                               
-                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <textarea class="form-control" name="message" id="comments" rows="6" placeholder="Give us more details.."></textarea>
-                                </div>
-                                <div class="text-center pd">
-                                    <button type="submit" value="SEND" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block">SEND</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div><!-- end col -->
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </div><!-- end section -->
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="contact_form">
+                    <div id="message"></div>
+                    <form id="contactform" action="/contact" name="contactform" method="post">
+                        <div class="form-group">
+                            <label for="first_name">Adınız</label>
+                            <input type="text" name="name" id="first_name" class="form-control" placeholder="Adınız">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="comments">Mesajınız</label>
+                            <textarea class="form-control" name="message" id="comments" rows="6" placeholder="Detayları bize verin.."></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" value="SEND" id="submit" class="btn btn-primary btn-block">GÖNDER</button>
+                        </div>
+                    </form>
+                </div>
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</div><!-- end section -->
 
 <%- include('partials/_footer.ejs'); %>
-
-    
