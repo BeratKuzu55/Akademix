@@ -64,7 +64,7 @@ exports.sendEmailGetContact = async (req, res) => {
         <li>Email: ${req.body.email}</li>
       </ul>
       <h1>Message</h1>
-      <p>${req.body.messeage}</p>
+      <p>${req.body.message}</p>
     `
 
     const transporter = nodemailer.createTransport({
