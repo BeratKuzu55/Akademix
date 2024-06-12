@@ -1,0 +1,7 @@
+<% for(let i = 0; i < course.filelink.length; i++) {  %> 
+								<% for(let j = 0; _files.length; j++){ %>
+									<% if(course.filelink[i] == _files[j]){ %>
+										<a href="">merhaba</a>
+									<% } %>
+								<% } %>
+							<% } %> 

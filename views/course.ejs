@@ -1,0 +1,123 @@
+<%- include('partials/_header.ejs'); %>
+<%- include('partials/_navigation.ejs'); %>   
+	
+	<div class="all-title-box">
+		<div class="container text-center">
+			<h1><%= course.name %><span class="m_1">Lorem Ipsum dolroin gravida nibh vel velit.</span></h1>
+		</div>
+	</div>
+	
+    <div id="overviews" class="section wb">
+        <div class="container">
+            <div class="row"> 
+                <div class="col-lg-9 blog-post-single">
+                    <div class="blog-item">
+						<div class="image-blog">
+							<img src="/images/blog_single.jpg" alt="" class="img-fluid">
+						</div>
+						<div class="post-content">
+							<% if(user && !user.courses.includes(course._id)) { %>
+
+							<div class="post-date">
+								<form method="post" action="/courses/enroll">
+									<input type="hidden" name="course_id" value="<%=course._id%>">
+									<button class="btn btn-lg btn-warning text-white"><span>Enroll</span></button>
+								</form>
+							</div>
+
+								
+							<% } %>
+
+							<% if( course.user._id.toString().localeCompare(user._id.toString()) == 0) { %>
+									
+								<!-- pdf yukleme alani -->
+							<div class="form-group"> 
+								<div class="col-sm-12">
+									<form action="/courses/pdfyukle" method="post" enctype="multipart/form-data">
+											<p>Ders pdf'i</p>
+											<input type="hidden" name="course_id" value="<%= course._id %>" id="">
+											<input type="file" name="image" />
+											<input type="submit" >
+									</form>
+								</div>
+							</div>
+
+							<% } %>
+							
+							<div class="meta-info-blog">
+								<span><i class="fa fa-calendar"></i> <a href="#">May 11, 2015</a> </span>
+							</div>
+							<div class="blog-title">
+								<h2><a href="#" title=""><%= course.name %></a></h2>
+							</div>
+							<div class="blog-desc">
+								
+								<blockquote class="default">
+									<%= course.description %>
+								</blockquote>
+								
+							</div>	
+							
+							<% if(course.demolink){ %>
+								<div class="blog-desc">
+									<h2>Demo Videosu</h2>
+									<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= course.demolink %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+								</div>
+							<% } %>
+							<br>
+								<h1>Ders Materyalleri</h1>
+							<% for(let i = 0; i < course.filelink.length; i++) {  %> 
+								<a href="uploads/<%= course.filelink[i] %>"><%= course.filelink[i] %></a>
+								<br>
+							<% } %> 
+							
+						</div>
+						<br>
+						<br>
+						<form action="/courses/yorumyap" method="post">
+							<div class="yorumAlani">
+								<h1>yorum yapın</h1>
+								<textarea style="width: 40%;
+								height: 100px;
+								padding: 10px;
+								background-color: #d0e2bc;
+								font: 1.0em/1.0em cursive;
+								color: #095484;" name="yorum" id=""></textarea>
+							</div>
+							<input type="hidden"  name="course_id" value="<%= course._id %>" id="">
+							<button type="submit" class="btn-light btn-small">Gönder</button>
+						</form>
+					</div>
+					
+					<div class="blog-author">
+						<div class="author-bio">
+							<h3 class="author_name"><a href="#"><%= course.user.name %></a></h3>
+						</div>
+						
+					</div>
+					
+                </div><!-- end col -->
+				<div class="col-lg-3 col-12 right-single">
+					<div class="widget-search">
+						<div class="site-search-area">
+							<form method="get" id="site-searchform" action="#">
+								<div>
+									<input class="input-text form-control" name="search" id="search-k" placeholder="Search..." type="text">
+									<button id="searchsubmit" value="Search" type="submit" ></button>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="widget-categories">
+						<h3 class="widget-title">Categories</h3>
+						<ul>
+							<% for(let i = 0; i < categories.length; i++) { %>
+							<li><a href="/courses?categories=<%=categories[i].slug%>"><%= categories[i].name %></a></li>
+							<% } %>
+						</ul>
+					</div>
+				</div>
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+<%- include('partials/_footer.ejs'); %>

@@ -1,0 +1,26 @@
+<%- include('partials/_header.ejs'); %>
+    <%- include('partials/_navigation.ejs'); %>
+
+        <h1>Talep Formu</h1>
+        <div class="row">
+            <div class="offset-1 col-xl-10 col-md-10 col-sm-10">
+                <div class="">
+                    <form name="talepformu" action="/talepformu" method="post" class="justify-content-center">
+
+                        <input type="text" placeholder="isim" name="isim" required>
+                        <br>
+                        <input type="text" id="" placeholder="soyisim" name="soyisim" required>
+                        <br>
+                        <input type="text" placeholder="telefon" name="telefon" required>
+                        <br>
+                        <input type="text" placeholder="email" name="mail" required>
+                        <br>
+                        <input type="text" name="dersismi" id="" placeholder="açılmasını istediğiniz ders" required>
+                        <input type="text" name="aciklama" id="" placeholder="Açıklama">
+                        <button type="submit">Gönder</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <%- include('partials/_footer.ejs'); %>
