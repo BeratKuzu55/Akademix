@@ -43,7 +43,14 @@ const CourseSchema = new Schema({
     filelink : [{
         type : String , 
         default : ""
-    }]
+    }] , 
+
+    comments : [
+        {
+            type : mongoose.Schema.Types.ObjectId , 
+            ref: 'Comment'
+        }
+    ]
     
 });
 

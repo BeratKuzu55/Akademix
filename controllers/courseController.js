@@ -3,6 +3,9 @@ const path = require("path");
 const Course = require('../models/course');
 const Category = require('../models/category');
 const User = require("../models/user");
+const Comment = require("../models/comment");
+
+
 exports.createCourse = async (req, res) => {
 
   try {
@@ -93,7 +96,17 @@ exports.getCourse = async (req, res) => {
     const user = await User.findById(req.session.userID);
     const course = await Course.findOne({ slug: req.params.slug }).populate('user'); // url'den gelen id yi yakalamamızı sağlar.
     const categories = await Category.find();
-    
+    const comments = [];
+
+    for(let i = 0; i<course.comments.length; i++) {
+
+      let comment = await Comment.findById(course.comments[i]);
+      //console.log("comment ------------>" + comment);
+      comments.push(comment);
+
+    }
+
+    //console.log("comment array" + comments)
     //console.log(course.user._id.toString().localeCompare(user._id.toString()) +"--------------------- " + user._id.toString());
     const uploadsDir = path.join(__dirname, '..', 'uploads');
     fs.readdir(uploadsDir, (err, _files) => {
@@ -115,6 +128,7 @@ exports.getCourse = async (req, res) => {
           user,
           categories,
           _files: JSON.stringify(_files), // Safely pass _files to the template
+          comments ,
         });
       }
     });
@@ -307,7 +321,17 @@ exports.yorumyap = async (req , res) => {
   try {
     
     const course = await Course.findById(req.body.course_id);
+    const _user = await User.findById(req.body.user_id);
     console.log(req.body);
+
+    const comment = await Comment.create({
+      content : req.body.yorum , 
+      user : _user ,
+      userName : _user.name , 
+    })
+
+    course.comments.push(comment);
+    await course.save();
     res.status(200).redirect(`/courses/${course.slug}`);
 
   } catch (error) {

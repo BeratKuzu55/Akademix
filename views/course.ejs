@@ -84,11 +84,24 @@
 								font: 1.0em/1.0em cursive;
 								color: #095484;" name="yorum" id=""></textarea>
 							</div>
+							<input type="hidden" value="<%= user._id %>" name="user_id" id="">
 							<input type="hidden"  name="course_id" value="<%= course._id %>" id="">
 							<button type="submit" class="btn-light btn-small">Gönder</button>
 						</form>
 					</div>
-					
+
+					<br>
+					<h1>Yorumlar</h1>
+					<div class="blog-item">
+						<div class="">
+							<% for(let i = 0; i < course.comments.length; i++) { %>
+								<h4> <%= comments[i].userName %></h4>
+								<p> <%= comments[i].content %> </p>
+
+							<% } %>
+						</div>
+						
+					</div>
 					<div class="blog-author">
 						<div class="author-bio">
 							<h3 class="author_name"><a href="#"><%= course.user.name %></a></h3>

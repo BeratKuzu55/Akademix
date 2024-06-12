@@ -287,18 +287,22 @@
 							<div class="col-lg-12 blog-post-single">
 								<div class="blog-author">
 									<div class="author-bio">
-										<h3 class="author_name"><a href="#"> Courses Enrolled by:  <%= user.name %></a></h3>
+										<h3 class="author_name"><a href="#">Giriş Yapıldı :<%= user.name %></a></h3>
 
 									</div>
 								</div>
 
 							</div>
 						</div>
+						<br>
+						<h1>Ön Kayıt Verileri</h1>
 						<div class="row mt-5">
-							<h1>Ön Kayıt Verileri</h1>
+							
 							<br>
+							<br>
+							<div>
 							<h2>Toplam Ön Kayıt sayısı : <%= pre_registration_count %></h2>
-
+						</div>
 							<div class="row mt-5">
 								<h2>Kurslar</h2>
 								<table class="table">
@@ -351,13 +355,15 @@
 
 						</div>
 						<div class="row mt-5">
-							<h2>Categories</h2>
+							<h2 class="" style="display: flex; width: 100%; justify-content: space-between;">
+								Categories<button style="" class="btn btn-lg btn-warning rounded-0 text-white" href=""
+								data-toggle="modal" data-target="#addCategory"><span>
+									ADD</span></button></h2>
 							<table class="table">
 								<thead>
 								  <tr>
 									<th scope="col">ID#</th>
 									<th scope="col">Name</th>
-									<th scope="col">Add</th>
 									<th scope="col">Delete</th>
 								  </tr>
 								</thead>
@@ -366,9 +372,6 @@
 								  <tr>
 									<th scope="row"><%=categories[i]._id %></th>
 									<td><%=categories[i].name %></td>
-									<td><button class="btn btn-lg btn-warning rounded-0 text-white" href="#"
-										data-toggle="modal" data-target="#addCategory"><span>
-											ADD</span></button></td>
 									<td><a href="/categories/<%= categories[i]._id %>?_method=DELETE" 
 										onclick="return confirm('ARE YOU SURE')"
 										class="btn btn-danger rounded-0 text-white"><span>DELETE</span></a></td>
