@@ -3,7 +3,7 @@
 	
 	<div class="all-title-box">
 		<div class="container text-center">
-			<h1>Courses<span class="m_1">Lorem Ipsum dolroin gravida nibh vel velit.</span></h1>
+			<h1>Kurslar</h1>
 		</div>
 	</div>
 	
@@ -47,14 +47,14 @@
 						<div class="site-search-area">
 							<form method="get" id="site-searchform" action="#">
 								<div>
-									<input class="input-text form-control" name="search" id="search-k" placeholder="Search..." type="text">
+									<input class="input-text form-control" name="search" id="search-k" placeholder="Arama Yapın" type="text">
 									<button id="searchsubmit" value="Search" type="submit" ></button>
 								</div>
 							</form>
 						</div>
 					</div>
 					<div class="widget-categories">
-						<h3 class="widget-title">Categories</h3>
+						<h3 class="widget-title">Kategoriler</h3>
 						<ul>
 							<% for(let i = 0; i < categories.length; i++) { %>
 							<li><a href="/courses?categories=<%=categories[i].slug%>"><%= categories[i].name %></a></li>
