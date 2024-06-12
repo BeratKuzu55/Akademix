@@ -1,0 +1,10 @@
+.carousel-item .first-section {
+    background-image: none;
+}
+
+.carousel-item.active .first-section {
+    background-image: url('images/home-bg.png');
+}
+.text-center {
+    text-align: center;
+}
